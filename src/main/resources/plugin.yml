@@ -1,0 +1,3 @@
+name: ST-AutoSeed
+version: '1.0'
+main: com.stuudent.autoseed.AutoSeedCore
