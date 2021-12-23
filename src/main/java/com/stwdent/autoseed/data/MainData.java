@@ -36,14 +36,16 @@ public class MainData {
     }
 
     public static ItemStack getAutoSeedItem(int time) {
-        ItemStack item = autoSeedData.getItemStack("AutoSeedItem") == null ? new ItemStack(Material.STONE) : autoSeedData.getItemStack("AutoSeedItem");
-        ItemMeta itemMeta = item.getItemMeta();
+        ItemStack item = (autoSeedData.getItemStack("AutoSeedItem") == null) ? new ItemStack(Material.STONE) : autoSeedData.getItemStack("AutoSeedItem");
+        ItemMeta itemMeta = !item.hasItemMeta() ? Bukkit.getItemFactory().getItemMeta(Material.STONE) : item.getItemMeta();
         itemMeta.setLocalizedName("ST_AutoSeed_Item_" + time);
         List<String> itemLore = new ArrayList<>();
+        /*
         for(String currentLore : itemMeta.getLore()) {
             itemLore.add(currentLore.replace("%time%", String.valueOf(time)));
         }
         itemMeta.setLore(itemLore);
+        */
         item.setItemMeta(itemMeta);
         return item;
     }

@@ -23,9 +23,10 @@ public class ItemUseListener implements Listener {
             String itemData = currentHeldItem.getItemMeta().getLocalizedName();
             if(!itemData.contains("ST_AutoSeed_Item_")) return;
             int addedTime = Integer.parseInt(itemData.replace("ST_AutoSeed_Item_", ""));
+            currentHeldItem.setAmount(currentHeldItem.getAmount()-1);
             autoSeedPlayer.addAutoSeedTime(addedTime);
             player.sendMessage(ChatColor.translateAlternateColorCodes('&',
-                    PlaceholderAPI.setPlaceholders(player,AutoSeedCore.cf.getString("TimeAdded"))));
+                    PlaceholderAPI.setPlaceholders(player,AutoSeedCore.cf.getString("TimeAdded").replace("%added_time%", String.valueOf(addedTime)))));
         }
     }
 
