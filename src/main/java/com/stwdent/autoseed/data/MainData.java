@@ -40,12 +40,11 @@ public class MainData {
         ItemMeta itemMeta = !item.hasItemMeta() ? Bukkit.getItemFactory().getItemMeta(Material.STONE) : item.getItemMeta();
         itemMeta.setLocalizedName("ST_AutoSeed_Item_" + time);
         List<String> itemLore = new ArrayList<>();
-        /*
-        for(String currentLore : itemMeta.getLore()) {
-            itemLore.add(currentLore.replace("%time%", String.valueOf(time)));
+        List<String> CurrentLore = !itemMeta.hasLore() ? new ArrayList<>() : itemMeta.getLore();
+        for(String lore : CurrentLore) {
+            itemLore.add(lore.replace("%time%", String.valueOf(time)));
         }
         itemMeta.setLore(itemLore);
-        */
         item.setItemMeta(itemMeta);
         return item;
     }
