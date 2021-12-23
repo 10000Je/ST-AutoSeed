@@ -1,0 +1,9 @@
+AutoSeedON: '자동심기가 켜졌습니다.'
+AutoSeedOFF: '자동심기가 꺼졌습니다.'
+NoTime: '자동심기 시간이 부족합니다.'
+
+# PlaceHolder 사용가능, 시간 변수는 %current_time%
+CurrentTime: '%current_time%초'
+
+# PlaceHolder 사용가능, 시간 변수는 %added_time%
+TimeAdded: '%added_time% 초만큼 추가되었습니다.'

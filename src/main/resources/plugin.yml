@@ -1,3 +1,13 @@
 name: ST-AutoSeed
 version: '1.0'
-main: com.stuudent.autoseed.AutoSeedCore
+main: com.stwdent.autoseed.AutoSeedCore
+
+commands:
+  자동심기:
+    aliases: ['ㅈㅅ', 'seed']
+    description: '자동심기 ON/OFF'
+  자동심기시간:
+    description: '자신의 현재 남은 자동심기시간 확인'
+  자동심기관리:
+    permission: st.autoseed.manage
+    description: '관리자용 명령어'
