@@ -25,7 +25,7 @@ public class PlayerData implements AutoSeedPlayer {
             playerData.save(playerDataFile);
         } catch (IOException e) {
             e.printStackTrace();
-            Bukkit.getConsoleSender().sendMessage("§6ST-§bAutoSeed §c데이터를 저장하는 과정에서 오류가 발생했습니다.");
+            Bukkit.getConsoleSender().sendMessage("§6ST-§bAutoSeed §ev" + AutoSeedCore.instance.getDescription().getVersion() + " §c데이터를 저장하는 과정에서 오류가 발생했습니다.");
         }
     }
 

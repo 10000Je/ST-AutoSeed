@@ -1,6 +1,7 @@
 name: ST-AutoSeed
 version: '1.0'
 main: com.stwdent.autoseed.AutoSeedCore
+author: STwDENT
 
 commands:
   자동심기:
@@ -11,3 +12,6 @@ commands:
   자동심기관리:
     permission: st.autoseed.manage
     description: '관리자용 명령어'
+
+depend:
+  - PlaceholderAPI

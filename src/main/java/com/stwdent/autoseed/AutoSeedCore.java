@@ -19,6 +19,7 @@ public final class AutoSeedCore extends JavaPlugin {
     @Override
     public void onEnable() {
         instance = this;
+        if(!dependCheck()) return;
         saveDefaultConfig();
         cf = getConfig();
         setCommandExecutors();
@@ -49,6 +50,15 @@ public final class AutoSeedCore extends JavaPlugin {
     public void registerEvents() {
         Bukkit.getPluginManager().registerEvents(new BlockBreakListener(), instance);
         Bukkit.getPluginManager().registerEvents(new ItemUseListener(), instance);
+    }
+
+    public boolean dependCheck() {
+        if(getServer().getPluginManager().getPlugin("PlaceholderAPI") == null) {
+            Bukkit.getPluginManager().disablePlugin(instance);
+            Bukkit.getConsoleSender().sendMessage("§6ST-§bAutoSeed §ev" + getDescription().getVersion() + " §fPlaceholderAPI §c플러그인이 존재하지 않습니다.");
+            return false;
+        }
+        return true;
     }
 
 }

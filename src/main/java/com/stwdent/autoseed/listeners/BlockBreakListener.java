@@ -12,6 +12,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.material.CocoaPlant;
 import org.bukkit.material.Crops;
 
@@ -25,7 +26,9 @@ public class BlockBreakListener implements Listener {
         if(!autoSeedPlayer.isAutoSeedEnabled()) return;
         if(e.getBlock().getType().equals(Material.CROPS)) {
             Bukkit.getScheduler().scheduleSyncDelayedTask(AutoSeedCore.instance, () -> {
+                if(!player.getInventory().contains(Material.SEEDS)) return;
                 if(!e.getBlock().getType().equals(Material.AIR)) return;
+                player.getInventory().removeItem(new ItemStack(Material.SEEDS));
                 Crops crops = new Crops(CropState.SEEDED);
                 e.getBlock().setType(Material.CROPS);
                 BlockState blockState = e.getBlock().getState();
