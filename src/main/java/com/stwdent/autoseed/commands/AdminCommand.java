@@ -1,9 +1,11 @@
 package com.stwdent.autoseed.commands;
 
 import com.stwdent.autoseed.AutoSeedAPI;
+import com.stwdent.autoseed.AutoSeedCore;
 import com.stwdent.autoseed.data.MainData;
 import com.stwdent.autoseed.interfaces.AutoSeedPlayer;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
@@ -102,6 +104,12 @@ public class AdminCommand implements TabExecutor {
             }
             MainData.setAutoSeedItem(item);
             sender.sendMessage("자동심기 아이템이 설정되었습니다.");
+            return false;
+        }
+        if(args[0].equals("리로드")) {
+            AutoSeedCore.instance.reloadConfig();
+            AutoSeedCore.cf = AutoSeedCore.instance.getConfig();
+            sender.sendMessage("리로드가 완료되었습니다.");
             return false;
         }
         sender.sendMessage("/자동심기관리");
