@@ -3,6 +3,7 @@ package com.stwdent.autoseed;
 import com.stwdent.autoseed.commands.AdminCommand;
 import com.stwdent.autoseed.commands.UserCommand;
 import com.stwdent.autoseed.data.MainData;
+import com.stwdent.autoseed.data.Placeholders;
 import com.stwdent.autoseed.data.PlayerData;
 import com.stwdent.autoseed.listeners.BlockBreakListener;
 import com.stwdent.autoseed.listeners.ItemUseListener;
@@ -26,6 +27,7 @@ public final class AutoSeedCore extends JavaPlugin {
         setCommandTabCompleter();
         registerEvents();
         Bukkit.getScheduler().scheduleAsyncRepeatingTask(instance, new AutoSeedScheduler(), 0, 20);
+        new Placeholders().register();
         Bukkit.getConsoleSender().sendMessage("§6ST-§bAutoSeed §ev" + getDescription().getVersion() + " §a플러그인이 활성화 되었습니다. §f(created by STuuDENT, Discord 민제#5894)");
     }
 

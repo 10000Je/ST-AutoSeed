@@ -39,7 +39,9 @@ public class BlockBreakListener implements Listener {
         }
         if(e.getBlock().getType().equals(Material.CARROT)) {
             Bukkit.getScheduler().scheduleSyncDelayedTask(AutoSeedCore.instance, () -> {
+                if(!player.getInventory().contains(Material.CARROT_ITEM)) return;
                 if(!e.getBlock().getType().equals(Material.AIR)) return;
+                player.getInventory().removeItem(new ItemStack(Material.CARROT_ITEM));
                 Crops crops = new Crops(CropState.SEEDED);
                 e.getBlock().setType(Material.CARROT);
                 BlockState blockState = e.getBlock().getState();
@@ -50,7 +52,9 @@ public class BlockBreakListener implements Listener {
         }
         if(e.getBlock().getType().equals(Material.POTATO)) {
             Bukkit.getScheduler().scheduleSyncDelayedTask(AutoSeedCore.instance, () -> {
+                if(!player.getInventory().contains(Material.POTATO_ITEM)) return;
                 if(!e.getBlock().getType().equals(Material.AIR)) return;
+                player.getInventory().removeItem(new ItemStack(Material.POTATO_ITEM));
                 Crops crops = new Crops(CropState.SEEDED);
                 e.getBlock().setType(Material.POTATO);
                 BlockState blockState = e.getBlock().getState();
@@ -61,7 +65,9 @@ public class BlockBreakListener implements Listener {
         }
         if(e.getBlock().getType().equals(Material.BEETROOT_BLOCK)) {
             Bukkit.getScheduler().scheduleSyncDelayedTask(AutoSeedCore.instance, () -> {
+                if(!player.getInventory().contains(Material.BEETROOT_SEEDS)) return;
                 if(!e.getBlock().getType().equals(Material.AIR)) return;
+                player.getInventory().removeItem(new ItemStack(Material.BEETROOT_SEEDS));
                 Crops crops = new Crops(CropState.SEEDED);
                 e.getBlock().setType(Material.BEETROOT_BLOCK);
                 BlockState blockState = e.getBlock().getState();
@@ -72,7 +78,9 @@ public class BlockBreakListener implements Listener {
         }
         if(e.getBlock().getType().equals(Material.NETHER_WARTS)) {
             Bukkit.getScheduler().scheduleSyncDelayedTask(AutoSeedCore.instance, () -> {
+                if(!player.getInventory().contains(Material.NETHER_STALK)) return;
                 if(!e.getBlock().getType().equals(Material.AIR)) return;
+                player.getInventory().removeItem(new ItemStack(Material.NETHER_STALK));
                 Crops crops = new Crops(CropState.SEEDED);
                 e.getBlock().setType(Material.BEETROOT_BLOCK);
                 BlockState blockState = e.getBlock().getState();
@@ -84,7 +92,10 @@ public class BlockBreakListener implements Listener {
         if(e.getBlock().getType().equals(Material.COCOA)) {
             CocoaPlant blockData = (CocoaPlant) e.getBlock().getState().getData();
             Bukkit.getScheduler().scheduleSyncDelayedTask(AutoSeedCore.instance, () -> {
+                ItemStack cocoa = new ItemStack(Material.INK_SACK, 1, (short) 3);
+                if(!player.getInventory().contains(cocoa)) return;
                 if(!e.getBlock().getType().equals(Material.AIR)) return;
+                player.getInventory().removeItem(cocoa);
                 CocoaPlant cocoaPlant = new CocoaPlant(CocoaPlant.CocoaPlantSize.SMALL, blockData.getFacing());
                 e.getBlock().setType(Material.COCOA);
                 BlockState blockState = e.getBlock().getState();
