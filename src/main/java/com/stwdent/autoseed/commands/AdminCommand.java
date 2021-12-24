@@ -29,6 +29,7 @@ public class AdminCommand implements TabExecutor {
             sender.sendMessage("/자동심기관리 설정 [닉네임] [시간] - 유저의 잔여시간을 설정합니다.");
             sender.sendMessage("/자동심기관리 초기화 - 모든 유저의 데이터를 초기화합니다.");
             sender.sendMessage("/자동심기관리 아이템설정 - 자동심기 아이템을 들고있는 아이템으로 설정합니다.");
+            sender.sendMessage("/자동심기관리 리로드 - 콘피그를 리로드합니다. (config.yml)");
             return false;
         }
         if(args[0].equals("생성")) {
