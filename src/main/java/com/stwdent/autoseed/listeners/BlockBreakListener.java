@@ -93,7 +93,7 @@ public class BlockBreakListener implements Listener {
             CocoaPlant blockData = (CocoaPlant) e.getBlock().getState().getData();
             Bukkit.getScheduler().scheduleSyncDelayedTask(AutoSeedCore.instance, () -> {
                 ItemStack cocoa = new ItemStack(Material.INK_SACK, 1, (short) 3);
-                if(!player.getInventory().contains(cocoa)) return;
+                if(!player.getInventory().containsAtLeast(cocoa, 1)) return;
                 if(!e.getBlock().getType().equals(Material.AIR)) return;
                 player.getInventory().removeItem(cocoa);
                 CocoaPlant cocoaPlant = new CocoaPlant(CocoaPlant.CocoaPlantSize.SMALL, blockData.getFacing());
